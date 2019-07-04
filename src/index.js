@@ -1,12 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+const array1 = [0, 1, 2, 3, 4];
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const newArray1 = array1.map((output, index) => {
+  return `${index}番目は${output}です。`;
+});
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//console.log(newArray1);
+
+const array2 = ["joker", "skull", "panther", "fox", "queen"];
+
+const newArray2 = array2.map((output, index) => {
+  return `${index}番目は${output}です。`;
+});
+
+console.log(newArray2);
