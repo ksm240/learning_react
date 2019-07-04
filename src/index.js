@@ -1,12 +1,32 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { render } from 'react-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const todos =[
+  { id: 0, title:"title1" },
+  { id: 1, title:"title2" },
+  { id: 2, title:"title3" },
+  { id: 3, title:"title4" }
+];
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const deleteTargetId = 2;
+
+const deleteArray = todos.filter( todo => todo.id !== deleteTargetId );
+
+//console.log(deleteArray);
+
+const Todos = ({ todos }) => {
+  const list = todos.map( todo => {
+    return (
+      //keyを設定しないとkey設定しないと安定しないよみたいは注意をされた
+      <li key={todo.id}>
+        {todo.id} {todo.title}
+      </li>
+    );
+  });
+
+  return <ul>{list}</ul>;
+};
+
+render(<Todos todos={todos}/>, document.getElementById("root"));
+
+
